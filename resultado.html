@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Estilo para a imagem fora do formulário em várias posições */
+        .imagem-externa {
+            position: fixed;
+            width: 100px; /* Ajuste o tamanho conforme necessário */
+            height: auto;
+            animation: girar 2s ease-in-out forwards;
+        }
+
+        /* Posições da imagem */
+        #imagem-canto-inferior-direito {
+            bottom: 20px;
+            right: 20px;
+            animation: girar 2s ease-in-out forwards;
+        }
+        #imagem-meio-direito {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            animation: girar 2s ease-in-out forwards;
+        }
+        #imagem-canto-superior-direito {
+            top: 20px;
+            right: 20px;
+            animation: girar 2s ease-in-out forwards;
+        }
+        #imagem-canto-superior-esquerdo {
+            top: 20px;
+            left: 20px;
+            animation: girar 2s ease-in-out forwards;
+        }
+        #imagem-meio-esquerdo {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            animation: girar 2s ease-in-out forwards;
+        }
+        #imagem-canto-inferior-esquerdo {
+            bottom: 20px;
+            left: 20px;
+            animation: girar 2s ease-in-out forwards;
+        }
+
+        /* Animação de rotação */
+        @keyframes girar {
+            from {
+                transform: rotate(360deg) translate(100px, 100px); /* Posição inicial fora da tela */
+            }
+            to {
+                transform: rotate(0deg); /* Posição final */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div class="inputs text-center">
+            <h3 id="mensagem"></h3>
+            <!-- Imagem centralizada -->
+            <img id="imagem" src="2f4fa8edc8921606321951c12ca77a0aecd365a8fb0c1e92e9f5aa71b0c81237_1.jpg" alt="Imagem" style="display: none; width: 50%; max-width: 304px; height: auto; margin: 0 auto;">
+            <!-- Texto abaixo da imagem -->
+            <p id="texto" style="display: none; margin-top: 20px;">
+                Te achei uma garota deveras interessante, e já que acertei seu nome, será que você me concederia a honra de ter seu número telefônico?
+            </p>
+            <button onclick="voltar()" class="btn btn-danger mt-2">Voltar</button>
+        </div>
+    </div>
+
+    <!-- Imagens fora do formulário -->
+    <img id="imagem-canto-inferior-direito" class="imagem-externa" src="emoji.jpg" alt="Imagem Externa">
+    <img id="imagem-meio-direito" class="imagem-externa" src="emoji2.png" alt="Imagem Externa">
+    <img id="imagem-canto-superior-direito" class="imagem-externa" src="emoji3.png" alt="Imagem Externa">
+    <img id="imagem-canto-superior-esquerdo" class="imagem-externa" src="emoji4.jpg" alt="Imagem Externa">
+    <img id="imagem-meio-esquerdo" class="imagem-externa" src="emoji6.jpg" alt="Imagem Externa">
+    <img id="imagem-canto-inferior-esquerdo" class="imagem-externa" src="emoji5.png" alt="Imagem Externa">
+
+    <!-- Tag de áudio com loop -->
+    <audio id="audio" src="Romantic music sound effect.mp3" loop></audio>
+
+    <script>
+        // Recuperar o nome armazenado no localStorage
+        let nomeUsuario = localStorage.getItem('nomeUsuario');
+        
+        // Exibir a mensagem com o nome do usuário
+        let mensagem = document.getElementById('mensagem');
+        mensagem.innerText = `Seu nome é: ${nomeUsuario}`;
+
+        // Tocar a música em loop quando o valor é exibido
+        let audio = document.getElementById('audio');
+        audio.play();
+
+        // Exibir a imagem e o texto após a animação
+        let imagem = document.getElementById('imagem');
+        let texto = document.getElementById('texto');
+        imagem.style.display = 'block';
+        texto.style.display = 'block';
+
+        // Função para voltar à página inicial
+        function voltar() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
